@@ -14,9 +14,29 @@ def createPermutations(word):
     permutations = ["".join(perm) for perm in itertools.permutations(word)]
     return permutations
 
+# Searches for substrings of the word in the dictionary
+def has_substrings(anagram, dictionary):
+    for words in dictionary:
+        if anagram == words:
+            print (anagram)
+            return True
+    return False
+
+def count_lines(dictionary):
+    count = 0
+    for line in dictionary:
+        count +=1
+        print(f"line {count}: {line}")
+
+
 while True:
+    with open("dict_en_235k.txt") as file:
+        dictionary = file.read().splitlines()
+    print (dictionary)
+    """ count_lines(dictionary) """
+    
     anagram = input("Enter the anagram to be solved: ")
     """ print ("Scrambled word:", scrambleWord(anagram)) """
-
-    print (createPermutations(anagram))
+    """ print (createPermutations(anagram)) """
+    print (has_substrings(anagram, dictionary))
     break
