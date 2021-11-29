@@ -22,6 +22,7 @@ def has_substrings(anagram, dictionary):
             return True
     return False
 
+# Simply counts all lines in the dictionary
 def count_lines(dictionary):
     count = 0
     for line in dictionary:
@@ -30,16 +31,18 @@ def count_lines(dictionary):
 
 
 while True:
-    with open("dict_en_235k.txt") as file:
-        dictionary = file.read().splitlines()
-
+    
     # Tests
     """ print (dictionary) """
     """ count_lines(dictionary) """
     """ print ("Scrambled word:", scrambleWord(anagram)) """
     """ print (createPermutations(anagram)) """
+
+    with open("words/dict_en_235k.txt") as file:
+        dictionary = file.read().splitlines()
     
     anagram = input("Enter the anagram to be solved: ")
+    scrambled = scrambleWord(anagram)
     permutations = create_permutations(anagram)
     
     print (set(permutations) & set(dictionary))
