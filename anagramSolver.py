@@ -32,27 +32,9 @@ def count_lines(dictionary):
 
 
 while True:
-    
-    # Tests
-    """ print (dictionary) """
-    """ print ("Scrambled word:", scrambleWord(anagram)) """
-    """ print (createPermutations(anagram)) """
-
-    # TODO: Make program combine all .txt files in one dictionary
-    """ word_path = "words/"
-    all_files = os.listdir(word_path)
-    print (all_files)
-
-    for filename in all_files:
-        if filename.endswith(".txt"):
-            with open(word_path + filename) as file:
-                dictionary = file.read().splitlines() """
-
     with open("words/wlist_match2.txt") as file:
         dictionary = file.read().splitlines()
-    
-    """ count_lines(dictionary) """
-    
+        
     anagram = input("Enter the anagram to be solved: ")
     scrambled = scrambleWord(anagram)
     permutations = create_permutations(anagram)
