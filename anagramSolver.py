@@ -10,7 +10,7 @@ def scrambleWord(toScramble):
     return ''.join(scrambled)
 
 # Creates all permutations of the given word and stores it in an array.
-def createPermutations(word):
+def create_permutations(word):
     permutations = ["".join(perm) for perm in itertools.permutations(word)]
     return permutations
 
@@ -32,11 +32,16 @@ def count_lines(dictionary):
 while True:
     with open("dict_en_235k.txt") as file:
         dictionary = file.read().splitlines()
-    print (dictionary)
+
+    # Tests
+    """ print (dictionary) """
     """ count_lines(dictionary) """
-    
-    anagram = input("Enter the anagram to be solved: ")
     """ print ("Scrambled word:", scrambleWord(anagram)) """
     """ print (createPermutations(anagram)) """
-    print (has_substrings(anagram, dictionary))
+    
+    anagram = input("Enter the anagram to be solved: ")
+    permutations = create_permutations(anagram)
+    
+    print (set(permutations) & set(dictionary))
+
     break
